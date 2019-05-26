@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0/EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+    <!--    properties资源文件      -->
+    <properties resource="database.properties">
+
+    </properties>
+    
+    <settings>
+        <setting name="logImpl" value="LOG4J"/>
+    </settings>
+
+    <!--    下滑线转化为驼峰    -->
+
+
+    <environments default="dev">
+        <environment id="dev">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="UNPOOLED">
+                <property name="url" value="${url}"></property>
+                <property name="driver" value="${driver}"></property>
+                <property name="username" value="${username}"></property>
+                <property name="password" value="${password}"></property>
+
+                <!--<property name="url" value="jdbc:mysql://localhost:3306/smbms"></property>-->
+                <!--<property name="driver" value="com.mysql.jdbc.Driver"></property>-->
+                <!--<property name="username" value="root"></property>-->
+                <!--<property name="password" value="123456"></property>-->
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <!--<package name="cn.smbms.dao"/>-->
+        <!--<package name="mappers"></package>-->
+        <mapper resource="mappers/UserMapper.xml"></mapper>
+        <mapper resource="mappers/RoleMapper.xml"></mapper>
+    </mappers>
+</configuration>
